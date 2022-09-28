@@ -1,1 +1,44 @@
-<app-recipeitem></app-recipeitem>
+<div class="row">
+    <div class="col-xs-12">
+        <button class='btn btn-success'>New Recipe</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <a href="#" *ngFor="let rcp of recipes; let i=index">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <h4>{{ rcp.name }}</h4>
+                    <p>{{ rcp.description }}</p>
+                    <span class="badge">
+                        <img [src]="rcp.imagePath" 
+                        alt="{{ rcp.name }}"
+                        class="img-responsive" style="max-height: 100px;">
+                    </span>
+                </li>
+            </ul>
+        </a>
+    </div>
+</div>
+
+<!-- <div *ngFor="let rpc of recipes; let i = index">
+            <h4 class="list-group-item-heading">{{ rcp.name }}</h4>
+            <p class="list-group-item-text">{{ rcp.desc }}</p>
+            <p>{{i}}</p>
+        </div> -->
+
+<!-- <div class="row">
+    <div class="col-xs-12">
+        <a href="#" class="list-group-item clearfix" *ngFor="let rpc of recipes">
+            <div class="pull-left">
+                <h4 class="list-group-item-heading">{{ rcp.name }}</h4>
+                <p class="list-group-item-text">{{ rcp.desc }}</p>
+            </div>
+            <span class="pull-right">
+                <img src="" alt="" class="img-responsive" style="max-height: 50px;">
+            </span>
+        </a>
+        <app-recipeitem></app-recipeitem>
+    </div>
+</div> -->
