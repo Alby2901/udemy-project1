@@ -8,9 +8,15 @@ import { Recipe } from './recipe.model';
 })
 export class RecipesComponent implements OnInit {
 
+  rcpSelTop: Recipe;
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  // onRcpSelTop(rcpRecTopParam: Recipe){
+  //   this.rcpSelTop = rcpRecTopParam;
+  // }
 
 }

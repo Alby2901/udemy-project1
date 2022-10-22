@@ -1,9 +1,9 @@
-<app-header></app-header>
+<app-header (inviaSelezione)="OnRiceviSelezione($event)"></app-header>
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <app-recipes></app-recipes>
-      <app-shoppinglist></app-shoppinglist>
+      <app-recipes      *ngIf="selezioneRicevuta === 'receipe' "></app-recipes>
+      <app-shoppinglist *ngIf="selezioneRicevuta === 'shopping' "></app-shoppinglist>
     </div>
   </div>
 </div>

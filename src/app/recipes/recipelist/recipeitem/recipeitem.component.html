@@ -1,1 +1,13 @@
-<p>recipe-item works!</p>
+<a href="#" (click)="OnReceipeSelect(rcp)">
+  <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+          <h4>{{ rcp.name }}</h4>
+          <p>{{ rcp.description }}</p>
+          <span class="badge">
+              <img [src]="rcp.imagePath"
+              alt="{{ rcp.name }}"
+              class="img-responsive" style="max-height: 100px;">
+          </span>
+      </li>
+  </ul>
+</a>

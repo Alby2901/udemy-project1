@@ -6,19 +6,12 @@
 <hr>
 <div class="row">
     <div class="col-xs-12">
-        <a href="#" *ngFor="let rcp of recipes; let i=index">
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <h4>{{ rcp.name }}</h4>
-                    <p>{{ rcp.description }}</p>
-                    <span class="badge">
-                        <img [src]="rcp.imagePath" 
-                        alt="{{ rcp.name }}"
-                        class="img-responsive" style="max-height: 100px;">
-                    </span>
-                </li>
-            </ul>
-        </a>
+        <app-recipeitem
+        *ngFor="let receipeEl of recipes; let i=index"
+        [rcp]="receipeEl"
+        (rcpSel)="OnRecRcpSel($event)"
+        >
+        </app-recipeitem>
     </div>
 </div>
 
@@ -39,6 +32,6 @@
                 <img src="" alt="" class="img-responsive" style="max-height: 50px;">
             </span>
         </a>
-        <app-recipeitem></app-recipeitem>
+
     </div>
 </div> -->
