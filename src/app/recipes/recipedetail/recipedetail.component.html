@@ -23,15 +23,17 @@
 </div>
 <div class="row">
   <div class="colxs-12">
-      <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle">
+      <div class="dropdown" >
+          <button appDropdownDirectiveTs type="button" class="btn btn-primary dropdown-toggle"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Manage Recipe <span class="caret"></span>
           </button>
-          <ul class="dropdown-menu">
-              <li><a href="#">Add to shopping list</a></li>
-              <li><a href="#">Edit recepi</a></li>
-              <li><a href="#">Delete recepi</a></li>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item" href="#">Add to shopping list</a></li>
+              <li><a class="dropdown-item" href="#">Edit recepi</a></li>
+              <li><a class="dropdown-item" href="#">Delete recepi</a></li>
           </ul>
       </div>
   </div>
 </div>
+

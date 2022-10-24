@@ -10,5 +10,6 @@ export class RecipedetailComponent {
 
   @Input() rcpSelec: Recipe;
 
+
 }
 
