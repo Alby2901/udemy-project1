@@ -10,6 +10,9 @@ export class RecipedetailComponent {
 
   @Input() rcpSelec: Recipe;
 
+  isOpen: boolean = false;
+  isOpenComp2: boolean;
+
 
 }
 

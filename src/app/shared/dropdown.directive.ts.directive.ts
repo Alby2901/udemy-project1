@@ -1,42 +1,32 @@
-import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener, Input, Output, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[appDropdownDirectiveTs]'
 })
 export class DropdownDirectiveTsDirective {
 
-  //@Input() rcpSelec: Recipe;
-
-  // @Input() defaultBgColor: string = "transparent";
-  // @Input() highlightBgColor: string = "blue";
-
-  @Input() defaultColor: string = "black";
-  @Input() highlightColor: string = "yellow";
-
-  // @HostBinding("style.backgroundColor") backgroundColor: string;
-
   constructor(private elRef: ElementRef, private renderer: Renderer2) {}
+
+  private isOpen = false;
 
   @HostListener("click") mouseclick(eventData: Event) {
     console.log('Pippo!')
-    // this.renderer.setStyle(this.elRef.nativeElement, 'backgroundColor', 'blue')
-    //this.backgroundColor = this.highlightBgColor;
-    this.renderer.setStyle(this.elRef.nativeElement, "color", this.highlightColor);
-    this.renderer.addClass(this.elRef.nativeElement, 'show')
+
+    const dropDownMenu = this.elRef.nativeElement.nextElementSibling;
+    // console.log('dropDownMenu: ', dropDownMenu)
+    if (!this.isOpen) {
+      this.renderer.addClass(dropDownMenu, 'show');
+    } else {
+      this.renderer.removeClass(dropDownMenu, 'show');
+    }
+    this.isOpen = !this.isOpen;
+
+    document.addEventListener('click', (event) => {
+      if (event.target !== this.elRef.nativeElement) {
+          this.isOpen = false;
+          this.renderer.removeClass(dropDownMenu, 'show');
+      }
+    });
   }
-
-  @HostListener("mouseenter") mouseover(eventData: Event) {
-    // this.renderer.setStyle(this.elRef.nativeElement, 'backgroundColor', 'blue')
-    // this.backgroundColor = this.highlightBgColor;
-    this.renderer.setStyle(this.elRef.nativeElement, "color", this.highlightColor);
-
-  }
-
-  @HostListener("mouseleave") mouseleave(eventData: Event) {
-    // this.renderer.setStyle(this.elRef.nativeElement, 'backgroundColor', 'transparent')
-    // this.backgroundColor = this.defaultBgColor;
-    this.renderer.setStyle(this.elRef.nativeElement, "color", this.defaultColor);
-  }
-
 }
 
