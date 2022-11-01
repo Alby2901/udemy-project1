@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Output, ViewChild } from "@angular/core";
 import { Ingredient } from "src/app/shared/ingredient.model";
+import { ShoppingListService } from "../service/shopping-list.service";
 
 
 @Component({
@@ -13,7 +14,9 @@ export class ShoppinglisteditComponent {
   @ViewChild('nameInput', {static: false}) varNameInput: ElementRef<HTMLInputElement>;
   @ViewChild('amountInput', {static: false}) varAmountInput: ElementRef<HTMLInputElement>;
 
-  @Output() newIngredient = new EventEmitter<Ingredient>;
+  // @Output() newIngredient = new EventEmitter<Ingredient>;
+
+  constructor(private shoppingListService: ShoppingListService){}
 
   onAddIngredient(){
       // console.log('Nome Ingr. ', this.varNameInput)
@@ -24,7 +27,11 @@ export class ShoppinglisteditComponent {
       const amount: number = +this.varAmountInput.nativeElement.value
       const ingredientToAdd = new Ingredient( name, amount)
       if(name && amount){
-        this.newIngredient.emit(ingredientToAdd)
+        // output the new ingredient
+        // this.newIngredient.emit(ingredientToAdd)
+        this.shoppingListService.addIngredient(ingredientToAdd)
+
+        // reset form field
         this.varNameInput.nativeElement.value = null
         this.varAmountInput.nativeElement.value = null
       }else{
