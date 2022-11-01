@@ -9,11 +9,22 @@
         <app-recipeitem
         *ngFor="let receipeEl of recipes; let i=index"
         [rcp]="receipeEl"
-        (rcpSel)="OnRecRcpSel($event)"
         >
         </app-recipeitem>
     </div>
 </div>
+
+<!-- <div class="row">
+  <div class="col-xs-12">
+      <app-recipeitem
+      *ngFor="let receipeEl of recipes; let i=index"
+      [rcp]="receipeEl"
+      (rcpSel)="OnRecRcpSel($event)"
+      >
+      </app-recipeitem>
+  </div>
+</div> -->
+
 
 <!-- <div *ngFor="let rpc of recipes; let i = index">
             <h4 class="list-group-item-heading">{{ rcp.name }}</h4>

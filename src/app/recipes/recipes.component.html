@@ -1,13 +1,25 @@
 <div class="row">
-    <div class="col-md-5">
-        <app-recipelist (RecRcpSel)="rcpSelTop = $event"></app-recipelist>
-    </div>
-    <div class="col-md 7">
-        <app-recipedetail
-        *ngIf="rcpSelTop; else infoText"
-        [rcpSelec]="rcpSelTop"></app-recipedetail>
-        <ng-template #infoText>
-          <p>Selezionare una ricetta</p>
-        </ng-template>
-    </div>
+  <div class="col-md-5">
+    <!-- <app-recipelist (RecRcpSel)="rcpSelTop = $event"></app-recipelist> -->
+    <app-recipelist></app-recipelist>
+  </div>
+
+  <!-- <div class="col-md 7">
+    <app-recipedetail
+      *ngIf="rcpSelTop; else infoText"
+    ></app-recipedetail>
+    <ng-template #infoText>
+      <p>Selezionare una ricetta</p>
+    </ng-template>
+  </div> -->
+
+  <div class="col-md 7">
+    <app-recipedetail
+      *ngIf="rcpSelTop; else infoText"
+      [rcpSelec]="rcpSelTop"
+    ></app-recipedetail>
+    <ng-template #infoText>
+      <p>Selezionare una ricetta</p>
+    </ng-template>
+  </div>
 </div>
